@@ -1,28 +1,29 @@
-== README
+== Hymnal: A digital songbook application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hymnal is a tool for managing and displaying song lyrics. It is comprised of
+two parts: an admin section and a front end. The admin section is for adding
+new songs, editing old songs, and featuring songs to be displayed on the front
+end.
 
-Things you may want to cover:
+The front end shows the featured songs with their lyrics on a single page.
+There is a link at the bottom of that page that provides a list of all
+available songs in the database. For copyright reasons the front end is
+protected by a password.
+
+== Installation
+
+Hymnal was developed and tested on (MRI) Ruby 2.0.0 and Rails 4.0.0 using
+PostgreSQL as the database backend.
+
+[TODO]: Add detailed installation instructions including information on the
+following items:
 
 * Ruby version
-
 * System dependencies
-
 * Configuration
-
 * Database creation
-
 * Database initialization
-
 * How to run the test suite
-
 * Services (job queues, cache servers, search engines, etc.)
-
 * Deployment instructions
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
