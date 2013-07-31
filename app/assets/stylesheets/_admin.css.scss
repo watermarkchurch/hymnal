@@ -1,0 +1,53 @@
+body.admin {
+
+  .song-title {
+    text-transform: capitalize;
+  }
+
+  .row.sub-heading {
+    .links {
+      padding-top: 1em;
+      text-align: right;
+    }
+  }
+
+  > .container {
+    margin-top: 40px;
+  }
+
+  .songs.table {
+    .title {
+      width: 25%;
+    }
+  }
+
+  .song {
+
+    .sub-heading {
+      margin-bottom: 1em;
+    }
+
+    h1.song-title {
+      margin-bottom: 0;
+    }
+
+    .scripture {
+      color: #aaa;
+    }
+
+    .section {
+      .section-title {
+        font-weight: 300px;
+        color: #aaa;
+      }
+    }
+
+    .copyright-blurb {
+      margin: 1em 0;
+      color: #aaa;
+      line-height: 14px;
+      font-size: 0.9em;
+    }
+
+  }
+}
