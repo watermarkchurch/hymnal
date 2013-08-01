@@ -13,13 +13,13 @@ body.frontend {
     font-size: 1.2em;
 
     li {
-      margin: 3px 0;
+      padding: 3px 0;
       text-transform: capitalize;
     }
   }
 
   .heading-divider {
-    @include retina-image("backgrounds/dark_leather", 398px 484px);
+    @include retina-image("backgrounds/tex2res4", 500px 500px);
     box-shadow: 0 1px 5px #444;
     text-align: center;
 
