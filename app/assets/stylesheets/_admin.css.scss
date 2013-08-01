@@ -1,5 +1,9 @@
 body.admin {
 
+  textarea {
+    width: 350px;
+  }
+
   .song-title {
     text-transform: capitalize;
   }
@@ -13,6 +17,10 @@ body.admin {
 
   > .container {
     margin-top: 40px;
+
+    > .alert {
+      margin-top: 20px;
+    }
   }
 
   .songs.table {

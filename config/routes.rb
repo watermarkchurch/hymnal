@@ -3,5 +3,6 @@ Hymnal::Application.routes.draw do
 
   namespace :admin do
     resources :songs
+    resources :song_sections
   end
 end

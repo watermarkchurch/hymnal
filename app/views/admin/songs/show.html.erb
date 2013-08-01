@@ -18,7 +18,12 @@
   <div class="section">
     <div class="section-title">
       <%= section.title %>
-      <%= link_to "(edit)", "#" %>
+      <%= link_to edit_admin_song_section_path(section), title: "Edit Section" do %>
+        <i class="icon-edit"></i>
+      <% end %>
+      <%= link_to admin_song_section_path(section), title: "Delete Section", method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="icon-trash"></i>
+      <% end %>
     </div>
     <div class="section-lyrics">
       <%= simple_format section.lyrics %>
@@ -26,7 +31,7 @@
   </div>
 <% end %>
 
-<%= link_to "Add Section", "#", class: "btn" %>
+<%= link_to "Add Section", new_admin_song_section_path(song_section: { song_id: @song.id }), class: "btn" %>
 
 <div class="copyright-blurb">
   <%= simple_format @song.copyright_blurb %>

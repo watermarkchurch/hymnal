@@ -39,4 +39,37 @@ describe "admin songs CRUD", type: :feature do
     visit "/admin/songs"
     expect(page).to_not have_content "Song To Be Deleted"
   end
+
+  describe "songs with sections" do
+    let(:song) { create Song, title: "Fuzzy Bunny" }
+
+    before :each do
+      create SongSection, song: song, lyrics: "Section A"
+      create SongSection, song: song, lyrics: "Section B"
+      create SongSection, song: song, lyrics: "Section C"
+    end
+
+    it "allow adding sections" do
+      visit "/admin/songs/#{song.id}"
+      click_link "Add Section"
+      fill_in "Title", with: "chorus"
+      fill_in "Lyrics", with: "Section D"
+      click_button "Create Song section"
+      expect(page).to have_content("Section D")
+    end
+
+    it "allow deleting sections" do
+      visit "/admin/songs/#{song.id}"
+      all("a[@title='Delete Section']").first.click
+      expect(page).to_not have_content("Section A")
+    end
+
+    it "allow deleting the whole song" do
+      visit "/admin/songs/#{song.id}"
+      click_link "Delete Song"
+      visit "/admin/songs"
+      expect(page).to_not have_content("Fuzzy Bunny")
+    end
+  end
+
 end

@@ -22,9 +22,12 @@
 
 <div class="container">
 
-  <div class="notice">
-    <%= flash[:notice] %>
-  </div>
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
 
   <div class="content">
     <%= yield %>
