@@ -1,7 +1,7 @@
 class FeaturedSongsController < ApplicationController
 
   def index
-    @songs = Song.all
+    @songs = Song.featured
   end
 
 end

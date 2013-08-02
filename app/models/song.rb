@@ -4,4 +4,5 @@ class Song < ActiveRecord::Base
   validates_presence_of :title
 
   scope :alphabetical, -> { order "title" }
+  scope :featured, -> { where("featured_order IS NOT NULL").order("featured_order") }
 end
