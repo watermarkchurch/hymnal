@@ -1,0 +1,9 @@
+<%= simple_form_for([:admin, @song_section], html: { class: "form-horizontal" }) do |f| %>
+
+  <%= f.input :song_id, as: :hidden %>
+  <%= f.input :title, hint: "e.g. verse 1, chorus, bridge" %>
+  <%= f.input :lyrics, as: :text, input_html: { rows: 7 } %>
+  <%= f.input :ordered_by %>
+
+  <%= f.button :wrapped, cancel: @song_section.song ? [:admin, @song_section.song] : nil %>
+<% end %>

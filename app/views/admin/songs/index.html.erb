@@ -1,0 +1,30 @@
+
+<div class="row sub-heading">
+  <div class="heading span9">
+    <h1>Songs</h1>
+  </div>
+  <div class="links span3">
+    <%= link_to 'New Song', new_admin_song_path, class: "btn" %>
+  </div>
+</div>
+
+<table class="songs table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Lyrics</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td class="title song-title"><%= link_to song.title, [:admin, song] %></td>
+        <td>
+          <%= truncate song.song_sections.collect(&:lyrics).join(" "), length: 100 %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

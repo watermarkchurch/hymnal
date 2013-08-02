@@ -1,0 +1,8 @@
+<%= simple_form_for([:admin, @song], html: { class: "form-horizontal" }) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :scripture, hint: "Separate scriptures with semicolons" %>
+  <%= f.input :copyright_blurb, as: :text, input_html: { rows: 7, cols: 50 } %>
+  <%= f.input :featured_order, hint: "Order of this song on the featured page. Blank out field to remove from featured page." %>
+
+  <%= f.button :wrapped, cancel: @song.new_record? ? admin_songs_path : [:admin, @song] %>
+<% end %>

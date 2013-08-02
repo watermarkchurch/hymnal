@@ -26,6 +26,12 @@
   </div>
 <% end %>
 
+<% if @songs.empty? %>
+  <div class="empty muted">
+    No songs have been featured. Click "View All Songs" below to see a list of all available songs.
+  </div>
+<% end %>
+
 <div class="footer">
   <button class="btn btn-large btn-inverse" type="button">View All Songs</button>
 </div>
