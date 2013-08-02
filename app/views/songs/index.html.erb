@@ -1,0 +1,9 @@
+<ul class="song-list">
+  <% @songs.each do |song| %>
+    <li><%= link_to song.title, song %></li>
+  <% end %>
+</ul>
+
+<div class="footer">
+  <%= link_to "Featured Songs", root_path, class: "btn btn-large" %>
+</div>

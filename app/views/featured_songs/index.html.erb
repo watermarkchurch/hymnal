@@ -4,27 +4,15 @@
   <% end %>
 </ul>
 
-<% @songs.each do |song| %>
-  <a name="song_<%= song.id %>"></a>
-  <div class="heading-divider">
-    <h2 class="song"><%= song.title %></h2>
-  </div>
-  <div class="song">
-    <% song.song_sections.each do |section| %>
-      <div class="section">
-        <div class="section-title"><%= section.title %></div>
-        <div class="section-lyrics"><%= simple_format section.lyrics %></div>
-      </div>
-    <% end %>
-    <div class="copyright">
-      <%= simple_format song.copyright_blurb %>
-    </div>
+<div class="featured-songs">
+  <% @songs.each do |song| %>
+    <%= render song %>
     <a href="#" class="back-link">
       Back To List
       <i class="icon-arrow-up"></i>
     </a>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <% if @songs.empty? %>
   <div class="empty muted">
@@ -33,5 +21,5 @@
 <% end %>
 
 <div class="footer">
-  <button class="btn btn-large btn-inverse" type="button">View All Songs</button>
+  <%= link_to "View All Songs", songs_path, class: "btn btn-large btn-inverse" %>
 </div>
