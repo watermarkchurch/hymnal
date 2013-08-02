@@ -5,4 +5,8 @@ class Song < ActiveRecord::Base
 
   scope :alphabetical, -> { order "title" }
   scope :featured, -> { where("featured_order IS NOT NULL").order("featured_order") }
+
+  def featured?
+    !!featured_order
+  end
 end

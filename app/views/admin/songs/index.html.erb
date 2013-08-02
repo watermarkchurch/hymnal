@@ -19,9 +19,12 @@
   <tbody>
     <% @songs.each do |song| %>
       <tr>
-        <td class="title song-title"><%= link_to song.title, [:admin, song] %></td>
+        <td class="title song-title">
+          <%= link_to song.title, [:admin, song] %>
+        </td>
         <td>
-          <%= truncate song.song_sections.collect(&:lyrics).join(" "), length: 100 %>
+          <%= truncate song.song_sections.collect(&:lyrics).join(" "), length: 75 %>
+          <%= featured_song_badge(song) %>
         </td>
       </tr>
     <% end %>
