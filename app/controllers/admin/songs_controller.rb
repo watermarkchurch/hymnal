@@ -2,7 +2,7 @@ class Admin::SongsController < AdminController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
 
   def index
-    @songs = Song.alphabetical.page(params[:page])
+    @songs = Song.alphabetical.search(params[:search]).page(params[:page])
   end
 
   def new

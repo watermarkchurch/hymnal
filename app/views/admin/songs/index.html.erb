@@ -1,10 +1,16 @@
 
 <div class="row sub-heading">
-  <div class="heading span9">
+  <div class="heading span4">
     <h1>Songs</h1>
   </div>
-  <div class="links span3">
-    <%= link_to 'New Song', new_admin_song_path, class: "btn" %>
+  <div class="search span4">
+    <form class="search form-search">
+      <input type="text" name="search" class="input-medium search-query" placeholder="Search" value="<%= params[:search] %>" />
+      <button type="submit" class="btn">Search</button>
+    </form>
+  </div>
+  <div class="links span4">
+    <%= link_to 'New Song', new_admin_song_path, class: "btn btn-primary" %>
   </div>
 </div>
 

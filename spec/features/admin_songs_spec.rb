@@ -10,6 +10,18 @@ describe "admin songs CRUD", type: :feature do
     expect(page).to have_content "B Song"
   end
 
+  it "searches songs" do
+    create Song, title: "Stronger"
+    create Song, title: "You Are Strong"
+    create Song, title: "Come Thou Fount"
+    visit "/admin/songs"
+    fill_in "search", with: "strong"
+    click_on "Search"
+    expect(page).to have_content "Stronger"
+    expect(page).to have_content "You Are Strong"
+    expect(page).to_not have_content "Come Thou Fount"
+  end
+
   it "creates new songs" do
     visit "/admin/songs/new"
     fill_in "Title", with: "Stronger"
