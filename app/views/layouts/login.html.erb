@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>WCC Hymnal | Admin</title>
+  <title>WCC Worship | Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/favicon.png">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -13,11 +13,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Hymnal Admin", admin_songs_path, class: "brand" %>
-      <ul class="nav">
-        <li class="active"><%= link_to "Songs", admin_songs_path %>
-        <li class="sign-out"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-      </ul>
+      <%= link_to "Worship Admin Login", new_user_session_path, class: "brand" %>
     </div>
   </div>
 </div>
@@ -32,10 +28,15 @@
   <% end %>
 
   <div class="content">
-    <%= yield %>
+    <div class="row">
+      <div class="offset4 span4">
+        <%= yield %>
+      </div>
+    </div>
   </div>
 
 </div>
 
 </body>
 </html>
+

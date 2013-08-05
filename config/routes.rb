@@ -1,10 +1,11 @@
 Hymnal::Application.routes.draw do
-  root 'featured_songs#index'
+  devise_for :users, only: [:sessions, :password]
 
+  root 'featured_songs#index'
   resources :songs, only: [:index, :show]
 
   namespace :admin do
-    get "/" => "songs#index"
+    root to: "songs#index"
     resources :songs
     resources :song_sections
   end
