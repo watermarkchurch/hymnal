@@ -2,12 +2,35 @@ require 'spec_helper'
 
 describe "frontend UI", feature: true do
 
+  after :each do
+    page.driver.options[:headers] = {}
+  end
+
   before :each do
     @songs = []
     @songs << create(Song, title: "Song B", featured_order: 3)
     @songs << create(Song, title: "Song A", featured_order: 1)
     @songs << create(Song, title: "Song C", featured_order: 2)
     @songs << create(Song, title: "Not Featured")
+  end
+
+  describe "access control" do
+    it "blocks public Internet addresses" do
+      page.driver.options[:headers] = { 'REMOTE_ADDR' => "66.67.68.69" }
+      visit "/"
+      expect(page).to_not have_content("Song A")
+      expect(page).to have_content("Blocked")
+    end
+
+    it "allows local addresses" do
+      [
+        "10.10.0.30", "192.168.1.10", "127.0.0.1"
+      ].each do |addr|
+        page.driver.options[:headers] = { 'REMOTE_ADDR' => addr }
+        visit "/"
+        expect(page).to_not have_content("Blocked")
+      end
+    end
   end
 
   describe "featuring songs" do
