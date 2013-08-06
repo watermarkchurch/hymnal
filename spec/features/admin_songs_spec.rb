@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe "admin songs CRUD", type: :feature do
 
+  before :each do
+    sign_in
+  end
+
   it "lists each song" do
     create Song, title: "B Song"
     create Song, title: "A Song"
