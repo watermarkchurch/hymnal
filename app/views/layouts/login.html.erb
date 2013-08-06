@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>WCC Worship | Login</title>
+  <title><%= Hymnal.config.brand %> | Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/favicon.png">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -13,7 +13,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Worship Admin Login", new_user_session_path, class: "brand" %>
+      <%= link_to "#{Hymnal.config.brand} Login", new_user_session_path, class: "brand" %>
     </div>
   </div>
 </div>
