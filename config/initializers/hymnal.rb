@@ -1,5 +1,6 @@
 Hymnal.configure do |config|
   config.brand = "Hymnal"
+  config.domain = "hymnal.example.com"
 
   # Access Control
   #
