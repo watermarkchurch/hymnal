@@ -1,6 +1,6 @@
 
 @mixin textured-divider {
-  @include retina-image("backgrounds/tex2res4", 500px 500px);
+  @include retina-image("backgrounds/tex2res4", 500px 500px, "png", null, true);
   box-shadow: 0 1px 5px #444;
   text-align: center;
 
@@ -16,7 +16,7 @@
 
 body.frontend {
   font-family: $helvetica;
-  @include retina-image("backgrounds/handmadepaper", 100px 100px);
+  @include retina-image("backgrounds/handmadepaper", 100px 100px, "png", null, true);
 
   > .title {
     @include textured-divider;
