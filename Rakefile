@@ -4,3 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 
 Hymnal::Application.load_tasks
+
+task :default => "db:test:prepare" do
+  exec "rspec ."
+end
