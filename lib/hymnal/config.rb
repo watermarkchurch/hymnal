@@ -9,12 +9,13 @@ module Hymnal
   end
 
   class Config
-    attr_accessor :brand
+    attr_accessor :brand, :domain
     attr_accessor :allow_acls, :deny_acls
     attr_accessor :block_message
 
     def initialize
       @brand = "Hymnal"
+      @domain = "hymnal.example.com"
       @allow_acls = []
       @deny_acls = []
     end
