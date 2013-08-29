@@ -15,6 +15,9 @@ Hymnal.configure do |config|
   config.allow_acls << "172.16.0.0/12"
   config.allow_acls << "192.168.0.0/16"
 
+  # Allow bypassing blocked page with a password
+  # config.password = "hymn41"
+
   # Message displayed when the user is blocked
   config.block_message = "We're sorry, but you are not allowed to access this application from your location."
 end

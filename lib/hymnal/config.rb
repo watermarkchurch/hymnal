@@ -12,6 +12,7 @@ module Hymnal
     attr_accessor :brand, :domain
     attr_accessor :allow_acls, :deny_acls
     attr_accessor :block_message
+    attr_accessor :password
     attr_accessor :mail_sender, :mail_delivery_method, :mail_smtp_settings
 
     def initialize

@@ -81,6 +81,14 @@ body.frontend {
     margin: 5px;
   }
 
+  .blocked-message {
+    margin: 1em;
+
+    .basic-login-form {
+      text-align: center;
+    }
+  }
+
   .footer {
     border-top: 2px solid #aaa;
     padding: 10px;

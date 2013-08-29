@@ -1,0 +1,16 @@
+<div class="blocked-message">
+  <div class="alert alert-error">
+    <h4>Blocked!</h4>
+    <%= Hymnal.config.block_message %>
+  </div>
+
+  <% if Hymnal.config.password %>
+    <div class="basic-login-form">
+      <%= form_tag "/login" do %>
+        <%= password_field_tag "password", nil, placeholder: "Password" %>
+        <br />
+        <%= submit_tag "Login", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
