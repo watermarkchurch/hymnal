@@ -20,6 +20,9 @@ gem 'uglifier', '>= 1.3.0'
 
 group :production do
   gem 'therubyracer', '~>0.10.1'
+
+  # For Heroku
+  gem 'rails_12factor'
 end
 
 group :doc do
