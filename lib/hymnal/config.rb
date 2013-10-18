@@ -16,13 +16,15 @@ module Hymnal
     attr_accessor :mail_sender, :mail_delivery_method, :mail_smtp_settings
 
     def initialize
-      @brand = "Hymnal"
-      @domain = "hymnal.example.com"
-      @mail_sender = "Hymnal<hymnal@example.com>"
+      @brand = ENV['HYMNAL_BRAND']
+      @domain = ENV['HYMNAL_DOMAIN']
+      @mail_sender = ENV['HYMNAL_MAIL_SENDER']
       @mail_delivery_method = :smtp
       @mail_smtp_settings = {}
-      @allow_acls = []
-      @deny_acls = []
+      @allow_acls = (ENV['HYMNAL_ALLOW_ACLS'] || "").split(',')
+      @deny_acls = (ENV['HYMNAL_DENY_ACLS'] || "").split(',')
+      @block_message = ENV['HYMNAL_BLOCK_MESSAGE']
+      @password = ENV['HYMNAL_PASSWORD']
     end
 
     def acl
