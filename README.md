@@ -11,7 +11,43 @@ There is a link at the bottom of that page that provides a list of all
 available songs in the database. Access control can be configured to
 restrict access for copyright reasons.
 
-Installation
+Simple Installation with Heroku
+-------------------------------
+
+Hymnal is super easy to deploy to Heroku. You can have your own instance
+up and going in less than 10 minutes!
+
+### Prerequisites
+
+* Create an Heroku account
+* Install the `heroku-tools` package
+* Install `git`
+* Clone this repo!
+
+### Configure It!
+
+Run these commands in the cloned repo directory:
+
+```
+$ heroku apps:create
+$ heroku config:set HYMNAL_BRAND="My Awesome App"
+$ heroku config:set HYMNAL_ALLOW_ACLS="0.0.0.0/0"
+```
+
+Note: The `HYMNAL_ALLOW_ACLS` above allows access from all addresses.
+Change this value to whatever makes sense for your deployment. See the
+"Access Control" section below.
+
+### Deploy It!
+
+Let's get this thing out there already!
+
+```
+$ git push heroku master
+$ heroku run rake db:migrate
+```
+
+Traditional Installation
 ------------
 
 ### Install Dependencies
@@ -30,7 +66,7 @@ Once the environment is ready to go you will need to configure a few things in
 the application:
 
 * `config/database.yml` -- Configure the production database credentials
-* `config/hymnal.rb` -- Set app specific configuration values (see the file for
+* `.env` -- Set app specific configuration values (see the file for
   examples)
 * `config/initializers/secret_token.rb` -- Generate your own with `rake secret`
 
@@ -38,6 +74,41 @@ the application:
 
 * Create database `RAILS_ENV=production bundle exec rake db:create db:migrate`
 * Add an admin user `RAILS_ENV=production bundle exec rake hymnal:add_admin`
+
+Access Control
+--------------
+
+Hymnal provides flexible access control so you can be as strict or as
+permissive as you'd like. Access is controlled by 3 environment
+variables:
+
+* `HYMNAL_ALLOW_ACLS` - Comma separated list of allowed IP ranges.
+* `HYMNAL_DENY_ACLS` - Comma separated list of denied IP ranges.
+* `HYMNAL_PASSWORD` - Plain text password allowing user to bypass ACL
+  checks.
+
+### Just Give me Some Examples!
+
+**Give access to everyone, but a specific address.**
+```
+HYMNAL_ALLOW_ACLS="0.0.0.0/0"
+HYMNAL_DENY_ACLS="123.456.678.90/32"
+```
+
+**Give access to just local networks**
+```
+HYMNAL_ALLOW_ACLS="127.0.0.1/32,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+```
+
+**Give access to just a block of addresses, but give password option**
+```
+HYMNAL_ALLOW_ACLS="123.456.789.10/28"
+HYMNAL_PASSWORD="hymn41"
+```
+
+Note: If you are using the Heroku deployment option all you have to do
+is prefix these commands with `heroku config:set` to set the
+configuration and then run `heroku restart` to apply the changes.
 
 Development Setup
 -----------------
