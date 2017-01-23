@@ -3,7 +3,7 @@ class SongSection < ActiveRecord::Base
 
   validates_presence_of :title, :song_id
 
-  before_save :set_position_to_end_of_song, if: -> { ordered_by.zero? }
+  before_save :set_position_to_end_of_song, if: -> { ordered_by.blank? || ordered_by.zero? }
 
   def set_position_to_end_of_song
     self.ordered_by = highest_song_ordered_by + 1
