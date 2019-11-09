@@ -20,35 +20,35 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :production do
-  gem 'therubyracer', '~>0.10'
+  # gem 'therubyracer'
 
   # For Heroku
   gem 'rails_12factor'
 end
 
 group :doc do
-  gem 'sdoc', require: false
+  # gem 'sdoc', require: false
 end
 
 group :test do
-  gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'minitest'
+  # gem 'capybara'
+  # gem 'capybara-webkit'
+  # gem 'factory_girl_rails'
+  # gem 'rspec-rails'
+  # gem 'shoulda-matchers'
+  # gem 'minitest'
 end
 
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'guard-bundler'
-  gem 'guard-pow'
-  gem 'guard-rspec'
-  gem 'letter_opener'
-  gem 'meta_request'
-  gem 'pry-rails'
-  gem 'rb-fsevent', '~> 0.9.1'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
+  # gem 'guard-bundler'
+  # gem 'guard-pow'
+  # gem 'guard-rspec'
+  # gem 'letter_opener'
+  # gem 'meta_request'
+  # gem 'pry-rails'
+  # gem 'rb-fsevent', '~> 0.9.1'
 end
 
 # Use ActiveModel has_secure_password
