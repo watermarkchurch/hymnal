@@ -4,7 +4,7 @@ gem 'rails', '~>4.0.0'
 
 gem 'bootstrap-sass', '~> 2.3.2.1'
 gem 'bourbon', '~> 3.1.8'
-gem 'bugsnag'
+# gem 'bugsnag'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise', '~>3.0.1'
 gem 'dotenv-rails', '0.9.0'
