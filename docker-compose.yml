@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres:9.6.15
+    ports:
+      - "5432"
+
+  web:
+    build: .
+    command: ["rails", "s", "-b", "0.0.0.0", "-p", "80"]
+    environment:
+      - "WATERMARK_DEV_ENV_DOMAIN"
+    volumes:
+      - .:/app:delegated
+      - hymnal_bundle:/bundle:cached
+    ports:
+      - "3105:80"
+    depends_on:
+      - postgres
+
+
+volumes:
+  hymnal_bundle:
