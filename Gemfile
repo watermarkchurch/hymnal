@@ -24,7 +24,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :production do
-  gem 'therubyracer', '~>0.10'
+  gem 'therubyracer', '~> 0.12.0'
 
   # For Heroku
   gem 'rails_12factor'
