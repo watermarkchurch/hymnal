@@ -1,13 +1,13 @@
 FROM ruby:2.5.8
 MAINTAINER "Watermark Dev <dev@watermark.org>"
 
-# RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" > /etc/apt/sources.list.d/pgdg.list; \
-#     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" > /etc/apt/sources.list.d/pgdg.list; \
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 
 RUN apt-get update && apt-get install --fix-missing -y \
   build-essential \
-  locales
-  # postgresql-client-9.6
+  locales \
+  postgresql-client-9.6
 
 ENV BUNDLE_GEMFILE=/app/Gemfile \
   BUNDLE_JOBS=20 \
