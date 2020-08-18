@@ -13,7 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20130805200127) do
 
-  create_table "song_sections", force: true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "song_sections", force: :cascade do |t|
     t.string   "title",                     null: false
     t.integer  "song_id",                   null: false
     t.integer  "ordered_by", default: 0,    null: false
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20130805200127) do
     t.datetime "updated_at"
   end
 
-  create_table "songs", force: true do |t|
+  create_table "songs", force: :cascade do |t|
     t.string   "title",           null: false
     t.string   "scripture"
     t.text     "copyright_blurb"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 20130805200127) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -50,6 +53,5 @@ ActiveRecord::Schema.define(version: 20130805200127) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "song_sections", "songs", :name => "song_sections_song_id_fk"
-
+  add_foreign_key "song_sections", "songs", name: "song_sections_song_id_fk"
 end
