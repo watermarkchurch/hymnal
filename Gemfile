@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.8'
 
-gem 'rails', '~>4.1.0'
+gem 'rails', '~>4.2.0'
 
 gem 'bootstrap-sass', '~> 2.3.2.1'
 gem 'bourbon', '~> 3.1.8'
