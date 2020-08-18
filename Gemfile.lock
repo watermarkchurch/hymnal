@@ -38,7 +38,8 @@ GEM
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
-    bugsnag (4.0.2)
+    bugsnag (6.16.0)
+      concurrent-ruby (~> 1.0)
     builder (3.1.4)
     callsite (0.0.11)
     capybara (2.1.0)
@@ -55,6 +56,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    concurrent-ruby (1.1.7)
     debug_inspector (0.0.2)
     devise (3.0.1)
       bcrypt-ruby (~> 3.0)
