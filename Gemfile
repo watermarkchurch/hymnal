@@ -10,22 +10,22 @@ gem 'bootstrap-sass', '~> 2.3.2.1'
 gem 'bourbon', '~> 3.1.8'
 gem 'bugsnag'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'devise', '~>3.0.1'
+gem 'devise', '~>3.2.0'
 gem 'dotenv-rails', '0.9.0'
 gem 'foreigner'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
-gem 'kaminari', '~>0.14.1'
+gem 'kaminari', '~>0.16.3'
+gem 'multi_json'
 gem 'newrelic_rpm'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.2'
-gem 'simple_form', '~> 3.1.0'
+gem 'simple_form', '~> 3.2.0'
+gem 'therubyracer', '~> 0.12.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :production do
-  gem 'therubyracer', '~> 0.12.0'
-
   # For Heroku
   gem 'rails_12factor'
 end
@@ -34,7 +34,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'minitest'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.99'
   gem 'shoulda-matchers'
 end
 
