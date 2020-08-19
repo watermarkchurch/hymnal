@@ -67,8 +67,24 @@ Hymnal::Application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: Hymnal.config.domain }
-  config.action_mailer.delivery_method = Hymnal.config.mail_delivery_method
-  config.action_mailer.smtp_settings = Hymnal.config.mail_smtp_settings
+
+  if ENV['ACTION_MAILER_SMTP_URL']
+    url = URI(ENV['ACTION_MAILER_SMTP_URL'])
+    options = CGI.parse(url.query)
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      port: url.port || 25,
+      address: url.host,
+      user_name: URI.unescape(url.user),
+      password: URI.unescape(url.password),
+      domain: options['domain'].first,
+      enable_starttls_auto: options['enable_starttls_auto'].first == 'true',
+      authentication: options['authentication'].first
+    }
+  else
+    config.action_mailer.delivery_method = Hymnal.config.mail_delivery_method
+    config.action_mailer.smtp_settings = Hymnal.config.mail_smtp_settings
+  end
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
