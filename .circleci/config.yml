@@ -39,7 +39,7 @@ jobs:
 
       # Ensure assets properly compile
       - run: |
-          rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=test
+          bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=test
 
       # Run rspec in parallel
       - type: shell
