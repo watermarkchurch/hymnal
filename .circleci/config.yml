@@ -1,0 +1,64 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.3.8-node
+        environment:
+          RAILS_ENV: test
+          DATABASE_URL: postgresql://ubuntu:test@127.0.0.1:5432/circle_ruby_test
+          SELENIUM_HOSTNAME: '127.0.0.1'
+      - image: postgres:9.5
+        environment:
+        - POSTGRES_USER: ubuntu
+        - POSTGRES_PASSWORD: test
+        - POSTGRES_DB: circle_ruby_test
+      - image: selenium/standalone-chrome:3.5
+    steps:
+      - checkout
+      # Restore bundle cache
+      - restore_cache:
+          key: rails-tmp-{{ checksum "Gemfile.lock" }}
+
+      # Bundle install dependencies
+      - run: bundle install --path /tmp/vendor/bundle
+
+      # Store bundle cache
+      - save_cache:
+          key: rails-tmp-{{ checksum "Gemfile.lock" }}
+          paths:
+            - /tmp/vendor/bundle
+
+      # - type: shell
+      #   command: |
+      #     bundle exec danger
+
+      # TODO: fail build when rubocop fails
+      # - type: shell
+      #   command: |
+      #     bundle exec rubocop
+
+      # Ensure assets properly compile
+      - run: |
+          rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=test
+
+      # Run rspec in parallel
+      - type: shell
+        command: |
+          RAILS_ENV=test bundle exec rake db:setup
+          bundle exec rspec --profile 10 \
+                            --format RspecJunitFormatter \
+                            --out test_results/rspec.xml \
+                            --format documentation \
+                            --order rand \
+                            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+
+      # Save test results for timing analysis
+      - store_test_results:
+          path: test_results
+
+      # TODO: Run Brakeman and fail on new vulnerabilities
+      # - run: |
+      #     if [[ "${CIRCLE_BRANCH}" == "master" || ! -z "${CIRCLE_PULL_REQUEST}" ]] ; then
+      #       gem install brakeman
+      #       brakeman -z
+      #     fi
