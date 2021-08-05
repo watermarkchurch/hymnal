@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0'
+gem 'rails', '4.2.11.3'
 
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bourbon', '~> 3.1'
@@ -11,9 +11,8 @@ gem 'dotenv-rails', '~> 0.9'
 gem 'foreigner', "~> 1.1"
 gem 'jbuilder', '~> 1.5'
 gem 'jquery-rails', "~> 3.0"
-gem 'kaminari', '~> 0.14'
-gem 'newrelic_rpm', "~> 3.7"
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'kaminari', '~> 1.2'
+gem 'pg', '~> 0.21'
 gem 'sass-rails', '~> 4.0'
 gem 'simple_form', '~> 3.0'
 gem 'turbolinks', "~> 1.3"
@@ -33,7 +32,6 @@ group :test do
   gem 'factory_girl_rails', "~> 4.2"
   gem 'rspec-rails', "~> 2.14"
   gem 'shoulda-matchers', "~> 2.8"
-  gem 'minitest', "~> 4.7"
 end
 
 group :development do
