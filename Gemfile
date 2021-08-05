@@ -13,15 +13,13 @@ gem 'jbuilder', '~> 1.5'
 gem 'jquery-rails', "~> 3.0"
 gem 'kaminari', '~> 0.14'
 gem 'newrelic_rpm', "~> 3.7"
-gem 'pg', "~> 0.17"
+gem 'pg', '>= 0.18', '< 2.0'
 gem 'sass-rails', '~> 4.0'
 gem 'simple_form', '~> 3.0'
 gem 'turbolinks', "~> 1.3"
 gem 'uglifier', '~> 2.1'
 
 group :production do
-  gem 'therubyracer', '~> 0.12'
-
   # For Heroku
   gem 'rails_12factor', "~> 0.0"
 end
@@ -31,8 +29,7 @@ group :doc do
 end
 
 group :test do
-  gem 'capybara', "~> 2.1"
-  gem 'capybara-webkit', "~> 1.0"
+  gem 'capybara', "~> 2.15"
   gem 'factory_girl_rails', "~> 4.2"
   gem 'rspec-rails', "~> 2.14"
   gem 'shoulda-matchers', "~> 2.8"
