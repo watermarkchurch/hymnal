@@ -30,16 +30,14 @@ end
 group :test do
   gem 'capybara', "~> 2.15"
   gem 'factory_girl_rails', "~> 4.2"
-  gem 'rspec-rails', "~> 2.14"
+  gem 'rspec-rails', "~> 3.8"
   gem 'shoulda-matchers', "~> 2.8"
 end
 
 group :development do
   gem 'better_errors', "~> 0.9"
   gem 'binding_of_caller', "~> 0.7"
-  gem 'guard-bundler', "~> 1.0"
-  gem 'guard-pow', "~> 1.0"
-  gem 'guard-rspec', "~> 3.0"
+  gem 'guard-rspec', "~> 4.7"
   gem 'letter_opener', "~> 1.1"
   gem 'meta_request', "~> 0.2"
   gem 'pry-rails', "~> 0.3"
