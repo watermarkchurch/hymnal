@@ -7,7 +7,7 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" > /etc/
 RUN apt-get update && apt-get install --fix-missing -y \
   build-essential \
   locales \
-  postgresql-client-9.6 \
+  postgresql-client-12 \
   nodejs
 
 ENV BUNDLE_GEMFILE=/app/Gemfile \

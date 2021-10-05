@@ -7,7 +7,7 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgresql://ubuntu:test@127.0.0.1:5432/circle_ruby_test
           SELENIUM_HOSTNAME: '127.0.0.1'
-      - image: postgres:9.5
+      - image: postgres:12
         environment:
         - POSTGRES_USER: ubuntu
         - POSTGRES_PASSWORD: test
