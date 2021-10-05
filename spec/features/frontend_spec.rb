@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "frontend UI", feature: true do
+describe "frontend UI", type: :feature do
 
   after :each do
     page.driver.options[:headers] = {}
