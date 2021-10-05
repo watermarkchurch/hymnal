@@ -29,7 +29,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'minitest'
   gem 'rspec-rails', '~> 3.9'
   gem 'shoulda-matchers'
