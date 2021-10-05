@@ -31,6 +31,7 @@ group :test do
   gem 'capybara', "~> 2.15"
   gem 'factory_girl_rails', "~> 4.2"
   gem 'rspec-rails', "~> 3.8"
+  gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'shoulda-matchers', "~> 2.8"
 end
 
