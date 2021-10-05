@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.3.8-node
+      - image: circleci/ruby:2.5.8-node
         environment:
           RAILS_ENV: test
           DATABASE_URL: postgresql://ubuntu:test@127.0.0.1:5432/circle_ruby_test
