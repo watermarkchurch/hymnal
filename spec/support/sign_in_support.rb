@@ -1,6 +1,6 @@
 module SignInSupport
 
-  def sign_in(user: create(User))
+  def sign_in(user: create(:user))
     @current_user = user
     visit "/users/sign_in"
     fill_in "Email", with: @current_user.email
