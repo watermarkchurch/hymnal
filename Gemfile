@@ -16,7 +16,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'kaminari', '~>0.16.3'
 gem 'multi_json'
-gem 'pg', '~> 1.2'
+gem 'pg', '~> 0.21'
 gem 'sass-rails', '~> 4.0.2'
 gem 'simple_form', '~> 3.2.0'
 gem 'turbolinks'
@@ -31,7 +31,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'minitest'
-  gem 'rspec-rails', '~> 2.99'
+  gem 'rspec-rails', '~> 3.9'
   gem 'shoulda-matchers'
 end
 
