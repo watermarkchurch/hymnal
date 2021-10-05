@@ -33,6 +33,7 @@ group :test do
   gem 'minitest'
   gem 'rspec-rails', '~> 3.9'
   gem 'shoulda-matchers'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
