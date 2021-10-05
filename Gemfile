@@ -6,7 +6,7 @@ ruby '2.5.8'
 
 gem 'rails', '~>4.2.0'
 
-gem 'bootstrap-sass', '~> 2.3.2.1'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bourbon', '~> 3.1.8'
 gem 'bugsnag'
 gem 'coffee-rails', '~> 4.0.0'
