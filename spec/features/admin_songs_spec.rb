@@ -7,17 +7,17 @@ describe "admin songs CRUD", type: :feature do
   end
 
   it "lists each song" do
-    create Song, title: "B Song"
-    create Song, title: "A Song"
+    create :song, title: "B Song"
+    create :song, title: "A Song"
     visit "/admin/songs"
     expect(page).to have_content "A Song"
     expect(page).to have_content "B Song"
   end
 
   it "searches songs" do
-    create Song, title: "Stronger"
-    create Song, title: "You Are Strong"
-    create Song, title: "Come Thou Fount"
+    create :song, title: "Stronger"
+    create :song, title: "You Are Strong"
+    create :song, title: "Come Thou Fount"
     visit "/admin/songs"
     fill_in "search", with: "strong"
     click_on "Search"
@@ -37,7 +37,7 @@ describe "admin songs CRUD", type: :feature do
   end
 
   it "updates songs" do
-    song = create Song, title: "A Song"
+    song = create :song, title: "A Song"
     visit "/admin/songs/#{song.id}/edit"
     fill_in "Title", with: "B Song"
     click_button "Update Song"
@@ -47,7 +47,7 @@ describe "admin songs CRUD", type: :feature do
   end
 
   it "deletes songs" do
-    song = create Song, title: "Song To Be Deleted"
+    song = create :song, title: "Song To Be Deleted"
     visit "/admin/songs"
     expect(page).to have_content "Song To Be Deleted"
     visit "/admin/songs/#{song.id}"
@@ -57,12 +57,12 @@ describe "admin songs CRUD", type: :feature do
   end
 
   describe "songs with sections" do
-    let(:song) { create Song, title: "Fuzzy Bunny" }
+    let(:song) { create :song, title: "Fuzzy Bunny" }
 
     before :each do
-      create SongSection, song: song, lyrics: "Section A"
-      create SongSection, song: song, lyrics: "Section B"
-      create SongSection, song: song, lyrics: "Section C"
+      create :song_section, song: song, lyrics: "Section A"
+      create :song_section, song: song, lyrics: "Section B"
+      create :song_section, song: song, lyrics: "Section C"
     end
 
     it "allow adding sections" do

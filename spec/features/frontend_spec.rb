@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "frontend UI", feature: true do
+describe "frontend UI", type: :feature do
 
   after :each do
     page.driver.options[:headers] = {}
@@ -8,10 +8,10 @@ describe "frontend UI", feature: true do
 
   before :each do
     @songs = []
-    @songs << create(Song, title: "Song B", featured_order: 3)
-    @songs << create(Song, title: "Song A", featured_order: 1)
-    @songs << create(Song, title: "Song C", featured_order: 2)
-    @songs << create(Song, title: "Not Featured")
+    @songs << create(:song, title: "Song B", featured_order: 3)
+    @songs << create(:song, title: "Song A", featured_order: 1)
+    @songs << create(:song, title: "Song C", featured_order: 2)
+    @songs << create(:song, title: "Not Featured")
   end
 
   describe "access control" do
@@ -49,8 +49,8 @@ describe "frontend UI", feature: true do
     end
 
     it "shows individual songs" do
-      song = create Song, title: "Stronger"
-      create SongSection, song: song
+      song = create :song, title: "Stronger"
+      create :song_section, song: song
       visit "/songs"
       click_on "Stronger"
       expect(page).to have_content("ants go marching")
