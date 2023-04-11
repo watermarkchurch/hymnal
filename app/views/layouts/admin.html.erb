@@ -11,17 +11,24 @@
 </head>
 <body class="admin">
 
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
+  <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-      <%= link_to "#{Hymnal.config.brand} Admin", admin_root_path, class: "brand" %>
-      <ul class="nav">
-        <li class="active"><%= link_to "Songs", admin_songs_path %>
-        <li class="sign-out"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-      </ul>
+      <div class="navbar-header">
+          <%= link_to "#{Hymnal.config.brand} Admin", admin_root_path, class: "navbar-brand" %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><%= link_to "Songs", admin_songs_path %>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="sign-out"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
     </div>
   </div>
-</div>
 
 <div class="container">
 
