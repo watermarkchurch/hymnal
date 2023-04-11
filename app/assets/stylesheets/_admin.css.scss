@@ -4,6 +4,12 @@ body.admin {
     width: 350px;
   }
 
+  .pagination-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
   .pagination {
     text-align: center;
   }
