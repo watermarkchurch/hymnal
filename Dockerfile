@@ -1,4 +1,4 @@
-FROM ruby:2.5.8
+FROM ruby:2.7.8
 MAINTAINER "Watermark Dev <dev@watermark.org>"
 
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" > /etc/apt/sources.list.d/pgdg.list; \
@@ -19,7 +19,7 @@ ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
 WORKDIR /app
 
-RUN gem install bundler -v 1.17.3
+RUN gem install bundler -v 2.4.11
 
 RUN bundle install
 
