@@ -1,4 +1,4 @@
-FROM ruby:2.5.8
+FROM ruby:2.7.8
 MAINTAINER "Watermark Dev <dev@watermark.org>"
 
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" > /etc/apt/sources.list.d/pgdg.list; \
