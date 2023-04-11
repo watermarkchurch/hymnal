@@ -19,7 +19,7 @@ ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
 WORKDIR /app
 
-RUN gem install bundler -v 1.17.3
+RUN gem install bundler -v 2.4.11
 
 RUN bundle install
 
